@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "env_json",
+	"version": "${version}",
+	"name": "env.json",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/env_json/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fr.firstmegagame4.env.json.impl.EnvJsonInitializer"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.2",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
