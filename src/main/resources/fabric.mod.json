@@ -5,11 +5,11 @@
 	"name": "env.json",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"FirstMegaGame4"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/user/FirstMegaGame4/",
+		"sources": "https://github.com/FirstMegaGame4/env.json"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/env_json/icon.png",
