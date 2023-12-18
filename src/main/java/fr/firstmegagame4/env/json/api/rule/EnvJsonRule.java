@@ -11,7 +11,7 @@ public interface EnvJsonRule {
 
 	Type type();
 
-	boolean apply(EnvJsonVisitor source);
+	boolean apply(EnvJsonVisitor visitor);
 
 	enum Type {
 

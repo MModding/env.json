@@ -1,8 +1,11 @@
 package fr.firstmegagame4.env.json.api;
 
+import fr.firstmegagame4.env.json.api.rule.SkyEnvJsonRule;
+import fr.firstmegagame4.env.json.api.rule.VoidEnvJsonRule;
+import fr.firstmegagame4.env.json.api.rule.WaterEnvJsonRule;
+import it.unimi.dsi.fastutil.ints.Int2BooleanFunction;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
@@ -16,5 +19,17 @@ public interface EnvJsonVisitor {
 
 	boolean applyBiomeTag(TagKey<Biome> biomeTag);
 
-	Identifier apply(EnvJsonMember member);
+	boolean applyXCoord(Int2BooleanFunction operation);
+
+	boolean applyYCoord(Int2BooleanFunction operation);
+
+	boolean applyZCoord(Int2BooleanFunction operation);
+
+	boolean applySubmerged(boolean submerged);
+
+	boolean applySky(SkyEnvJsonRule.Localization localization);
+
+	boolean applyWater(WaterEnvJsonRule.Localization localization);
+
+	boolean applyVoid(VoidEnvJsonRule.Localization localization);
 }

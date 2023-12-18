@@ -13,5 +13,5 @@ public interface EnvJsonMember {
 	Identifier result();
 
 	@Nullable
-	Identifier apply(EnvJsonVisitor source);
+	Identifier apply(EnvJsonVisitor visitor);
 }

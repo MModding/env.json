@@ -14,9 +14,9 @@ public record EnvJsonMemberImpl(List<EnvJsonRule> rules, Identifier result) impl
 
 	@Override
 	@Nullable
-	public Identifier apply(EnvJsonVisitor source) {
+	public Identifier apply(EnvJsonVisitor visitor) {
 		for (EnvJsonRule rule : this.rules) {
-			if (rule.apply(source)) {
+			if (rule.apply(visitor)) {
 				return this.result;
 			}
 		}

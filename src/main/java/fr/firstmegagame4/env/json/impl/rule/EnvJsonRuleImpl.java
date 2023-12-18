@@ -1,7 +1,9 @@
 package fr.firstmegagame4.env.json.impl.rule;
 
 import fr.firstmegagame4.env.json.api.rule.EnvJsonRule;
+import org.jetbrains.annotations.ApiStatus;
 
+@ApiStatus.Internal
 public abstract class EnvJsonRuleImpl implements EnvJsonRule {
 
 	private final Type type;

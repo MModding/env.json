@@ -5,7 +5,9 @@ import fr.firstmegagame4.env.json.api.rule.DimensionEnvJsonRule;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.ApiStatus;
 
+@ApiStatus.Internal
 public class DimensionEnvJsonRuleImpl extends EnvJsonRuleImpl implements DimensionEnvJsonRule {
 
 	private final RegistryKey<World> dimension;
@@ -34,12 +36,12 @@ public class DimensionEnvJsonRuleImpl extends EnvJsonRuleImpl implements Dimensi
 	}
 
 	@Override
-	public boolean apply(EnvJsonVisitor source) {
+	public boolean apply(EnvJsonVisitor visitor) {
 		if (this.dimension != null) {
-			return source.applyDimensionKey(this.dimension);
+			return visitor.applyDimensionKey(this.dimension);
 		}
 		else if (this.tag != null) {
-			return source.applyDimensionTag(this.tag);
+			return visitor.applyDimensionTag(this.tag);
 		}
 		else {
 			return false;

@@ -12,9 +12,9 @@ import java.util.List;
 public record EnvJsonImpl(List<EnvJsonMember> members) implements EnvJson {
 
 	@Override
-	public Identifier apply(EnvJsonVisitor source) {
+	public Identifier apply(EnvJsonVisitor visitor) {
 		for (EnvJsonMember member : this.members) {
-			Identifier result = member.apply(source);
+			Identifier result = member.apply(visitor);
 			if (result != null) {
 				return result;
 			}

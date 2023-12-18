@@ -5,7 +5,9 @@ import fr.firstmegagame4.env.json.api.rule.BiomeEnvJsonRule;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.world.biome.Biome;
+import org.jetbrains.annotations.ApiStatus;
 
+@ApiStatus.Internal
 public class BiomeEnvJsonRuleImpl extends EnvJsonRuleImpl implements BiomeEnvJsonRule {
 
 	private final RegistryKey<Biome> biome;
@@ -34,12 +36,12 @@ public class BiomeEnvJsonRuleImpl extends EnvJsonRuleImpl implements BiomeEnvJso
 	}
 
 	@Override
-	public boolean apply(EnvJsonVisitor source) {
+	public boolean apply(EnvJsonVisitor visitor) {
 		if (this.biome != null) {
-			return source.applyBiomeKey(this.biome);
+			return visitor.applyBiomeKey(this.biome);
 		}
 		else if (this.tag != null) {
-			return source.applyBiomeTag(this.tag);
+			return visitor.applyBiomeTag(this.tag);
 		}
 		else {
 			return false;

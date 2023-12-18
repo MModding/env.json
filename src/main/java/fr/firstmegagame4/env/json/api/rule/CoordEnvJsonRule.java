@@ -1,6 +1,8 @@
 package fr.firstmegagame4.env.json.api.rule;
 
-import net.minecraft.util.StringIdentifiable;
+import fr.firstmegagame4.env.json.impl.rule.CoordEnvJsonRuleImpl;
+
+import java.util.function.BiFunction;
 
 public interface CoordEnvJsonRule extends EnvJsonRule {
 
@@ -8,28 +10,39 @@ public interface CoordEnvJsonRule extends EnvJsonRule {
 
 	Comparator comparator();
 
+	int value();
+
 	enum Coord {
 		X,
 		Y,
 		Z
 	}
 
-	enum Comparator implements StringIdentifiable {
-		INFERIOR("<"),
-		INFERIOR_FLAT_EQUALS("<="),
-		FLAT_EQUALS("=="),
-		SUPERIOR_FLAT_EQUALS(">="),
-		SUPERIOR(">");
+	enum Comparator {
+		INFERIOR((provided, constant) -> provided < constant, "<"),
+		INFERIOR_FLAT_EQUALS((provided, constant) -> provided <= constant, "<=", "=<"),
+		FLAT_EQUALS(Integer::equals, "=="),
+		SUPERIOR_FLAT_EQUALS((provided, constant) -> provided >= constant, ">=", "=>"),
+		SUPERIOR((provided, constant) -> provided > constant, ">");
 
-		private final String representation;
+		private final BiFunction<Integer, Integer, Boolean> operation;
+		private final String[] representations;
 
-		Comparator(String representation) {
-			this.representation = representation;
+		Comparator(BiFunction<Integer, Integer, Boolean> operation, String... representations) {
+			this.operation = operation;
+			this.representations = representations;
 		}
 
-		@Override
-		public String asString() {
-			return this.representation;
+		public static Comparator fromString(String string) {
+			return CoordEnvJsonRuleImpl.comparatorFromString(string);
+		}
+
+		public BiFunction<Integer, Integer, Boolean> operation() {
+			return this.operation;
+		}
+
+		public String[] representations() {
+			return this.representations;
 		}
 	}
 }

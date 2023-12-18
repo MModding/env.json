@@ -14,5 +14,5 @@ public interface EnvJson {
 
     List<EnvJsonMember> members();
 
-	Identifier apply(EnvJsonVisitor source);
+	Identifier apply(EnvJsonVisitor visitor);
 }
