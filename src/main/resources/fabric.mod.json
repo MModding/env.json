@@ -11,7 +11,7 @@
 		"homepage": "https://modrinth.com/user/FirstMegaGame4/",
 		"sources": "https://github.com/FirstMegaGame4/env.json"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-3.0",
 	"icon": "assets/env_json/icon.png",
 	"environment": "*",
 	"entrypoints": {
