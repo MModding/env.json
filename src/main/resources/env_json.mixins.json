@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "fr.firstmegagame4.env.json.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "NamespaceResourceManagerMixin",
+    "ResourceAccessor",
+    "ResourceMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
