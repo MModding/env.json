@@ -11,11 +11,12 @@ import fr.firstmegagame4.env.json.impl.rule.*;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.util.crash.CrashReport;
 import org.jetbrains.annotations.ApiStatus;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,10 @@ public class EnvJsonParser {
 		}
 		assert reader != null;
 		this.content = JsonParser.parseReader(reader).getAsJsonArray();
+	}
+
+	public EnvJsonParser(InputStream stream) {
+		this.content = JsonHelper.deserializeArray(new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8)));
 	}
 
 	private static SequenceEnvJsonRule parseSequenceRule(JsonObject json) {
