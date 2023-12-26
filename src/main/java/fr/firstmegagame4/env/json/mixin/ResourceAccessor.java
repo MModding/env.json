@@ -23,6 +23,9 @@ public interface ResourceAccessor {
 	InputSupplier<ResourceMetadata> getMetadataSupplier();
 
 	@Nullable
-	@Accessor
-	ResourceMetadata getMetadata();
+	@Accessor("metadata")
+	ResourceMetadata getRawMetadata();
+
+	@Accessor("metadata")
+	void setRawMetaData(ResourceMetadata metadata);
 }

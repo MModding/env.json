@@ -18,11 +18,12 @@ public class ExtendedResourceImpl extends Resource implements ExtendedResource {
 	public static ExtendedResource of(Resource resource) {
 		ResourceAccessor accessor = (ResourceAccessor) resource;
 		ResourceDuckInterface ducked = (ResourceDuckInterface) resource;
-		return new ExtendedResourceImpl(accessor.getPack(), accessor.getInputSupplier(), accessor.getMetadataSupplier(), ducked.env_json$getEnvJsonSupplier(), accessor.getMetadata(), ducked.env_json$getEnvJson());
+		return new ExtendedResourceImpl(accessor.getPack(), accessor.getInputSupplier(), accessor.getMetadataSupplier(), ducked.env_json$getEnvJsonSupplier(), accessor.getRawMetadata(), ducked.env_json$getEnvJson());
 	}
 
 	private ExtendedResourceImpl(ResourcePack pack, InputSupplier<InputStream> inputSupplier, InputSupplier<ResourceMetadata> metadataSupplier, InputSupplier<EnvJson> envJsonSupplier, ResourceMetadata resourceMetadata, EnvJson envJson) {
 		super(pack, inputSupplier, metadataSupplier);
+		((ResourceAccessor) this).setRawMetaData(resourceMetadata);
 		ResourceDuckInterface ducked = (ResourceDuckInterface) this;
 		ducked.env_json$initEnvJsonSupplier(envJsonSupplier);
 		ducked.env_json$initEnvJson(envJson);

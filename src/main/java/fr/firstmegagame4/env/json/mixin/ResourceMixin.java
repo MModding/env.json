@@ -1,6 +1,7 @@
 package fr.firstmegagame4.env.json.mixin;
 
 import fr.firstmegagame4.env.json.api.EnvJson;
+import fr.firstmegagame4.env.json.impl.EnvJsonUtils;
 import fr.firstmegagame4.env.json.impl.resource.ResourceDuckInterface;
 import net.minecraft.resource.InputSupplier;
 import net.minecraft.resource.Resource;
@@ -13,10 +14,10 @@ import java.io.IOException;
 public class ResourceMixin implements ResourceDuckInterface {
 
 	@Unique
-	private InputSupplier<EnvJson> envJsonSupplier = null;
+	private InputSupplier<EnvJson> envJsonSupplier = EnvJsonUtils.ENV_JSON_NONE_SUPPLIER;
 
 	@Unique
-	private EnvJson envJson = null;
+	private EnvJson envJson = EnvJsonUtils.ENV_JSON_NONE;
 
 	@Override
 	public void env_json$initEnvJsonSupplier(InputSupplier<EnvJson> envJsonSupplier) {
