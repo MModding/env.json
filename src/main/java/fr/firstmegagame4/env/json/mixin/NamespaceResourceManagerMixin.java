@@ -161,7 +161,7 @@ public abstract class NamespaceResourceManagerMixin {
 			if (EnvJsonUtils.isEnvJson(identifier)) {
 				Identifier envJsonIdentifier = EnvJsonUtils.getEnvJsonFileName(identifier);
 				if (allowedPathPredicate.test(envJsonIdentifier)) {
-					((EntryListDuckInterface) (Object) idToEntryList.computeIfAbsent(identifier, NamespaceResourceManager.EntryList::new))
+					((EntryListDuckInterface) (Object) idToEntryList.computeIfAbsent(envJsonIdentifier, NamespaceResourceManager.EntryList::new))
 						.env_json$putEnvJsonSource(resourcePack, supplier);
 				}
 			}
