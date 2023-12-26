@@ -35,18 +35,23 @@ public class EnvJsonUtils {
 		return identifier.getPath().endsWith(".env.json");
 	}
 
-	public static String getFileExtension(Identifier identifier) {
-		return identifier.getPath().substring(identifier.getPath().lastIndexOf("."));
-	}
-
 	public static Identifier getEnvJsonFileName(Identifier identifier) {
-		return identifier.withPath(identifier.getPath().substring(0, identifier.getPath().length() - ".env.json".length()));
+		String path;
+		if (identifier.getPath().contains("-")) {
+			int index = identifier.getPath().lastIndexOf("-");
+			path = identifier.getPath().substring(0, index) + "." + identifier.getPath().substring(index + 1);
+		}
+		else {
+			path = identifier.getPath();
+		}
+		return identifier.withPath(path.substring(0, path.length() - ".env.json".length()));
 	}
 
 	public static Identifier getEnvJsonPath(Identifier identifier) {
 		String path;
 		if (identifier.getPath().contains(".")) {
-			path = identifier.getPath().substring(0, identifier.getPath().lastIndexOf("."));
+			int index = identifier.getPath().lastIndexOf(".");
+			path = identifier.getPath().substring(0, index) + "-" + identifier.getPath().substring(index + 1);
 		}
 		else {
 			path = identifier.getPath();
