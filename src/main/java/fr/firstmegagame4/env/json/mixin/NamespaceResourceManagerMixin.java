@@ -8,7 +8,6 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import fr.firstmegagame4.env.json.api.EnvJson;
-import fr.firstmegagame4.env.json.impl.EnvJsonInitializer;
 import fr.firstmegagame4.env.json.impl.EnvJsonUtils;
 import fr.firstmegagame4.env.json.impl.resource.EntryListDuckInterface;
 import fr.firstmegagame4.env.json.impl.resource.ResourceDuckInterface;
@@ -119,8 +118,7 @@ public abstract class NamespaceResourceManagerMixin {
 			Identifier envJsonIdentifier = EnvJsonUtils.getEnvJsonPath(identifier);
 			ResourceResult resourceResult = envJsonMap.get().get(envJsonIdentifier);
 			if (resourceResult != null && resourceResult.packIndex() >= result.invokePackIndex()) {
-				Identifier metadataIdentifier = NamespaceResourceManagerMixin.getMetadataPath(identifier);
-				ResultAccess access = (ResultAccess) results.get(identifier);
+				ResultAccess access = (ResultAccess) results.get(NamespaceResourceManagerMixin.getMetadataPath(identifier));
 				InputSupplier<ResourceMetadata> metadataSupplier;
 				if (access != null && access.invokePackIndex() >= result.invokePackIndex()) {
 					metadataSupplier = NamespaceResourceManagerMixin.getMetadataSupplier(access.invokeSupplier());
@@ -129,7 +127,7 @@ public abstract class NamespaceResourceManagerMixin {
 				}
 				ResourceDuckInterface ducked = (ResourceDuckInterface) NamespaceResourceManagerMixin.createResource(result.invokePack(), identifier, result.invokeSupplier(), metadataSupplier);
 				ducked.env_json$initEnvJsonSupplier(EnvJsonUtils.getEnvJsonSupplier(resourceResult.supplier()));
-				resources.put(metadataIdentifier, (Resource) ducked);
+				resources.put(identifier, (Resource) ducked);
 			}
 			else {
 				action.accept(identifier, result);
