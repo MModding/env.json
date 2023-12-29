@@ -3,7 +3,7 @@
 	"id": "env_json",
 	"version": "${version}",
 	"name": "env.json",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "env.json is a Minecraft Library introducing a new sub json file extension format, with the goal of redirecting minecraft resources to other ones based on the environment context.",
 	"authors": [
 		"FirstMegaGame4"
 	],
@@ -30,6 +30,7 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"env_driven_assets": "*",
+		"env_driven_data": "*"
 	}
 }

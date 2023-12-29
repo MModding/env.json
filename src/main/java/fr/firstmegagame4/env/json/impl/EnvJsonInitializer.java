@@ -13,6 +13,6 @@ public class EnvJsonInitializer implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("EnvJson Library Loaded");
+		LOGGER.info("hello-world.env.json");
 	}
 }
