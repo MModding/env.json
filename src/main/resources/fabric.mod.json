@@ -32,10 +32,5 @@
 	"suggests": {
 		"env_driven_assets": "*",
 		"env_driven_data": "*"
-	},
-	"custom": {
-		"modmenu": {
-			"badges": [ "library" ]
-		}
 	}
 }

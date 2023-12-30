@@ -1,5 +1,7 @@
 # env.json
 
+[<img src="https://github.com/FirstMegaGame4/env.json/tree/main/external/promo/logo.png" width="256" alt="env.json logo">](https://modrinth.com/mod/env.json)
+
 ## Supports
 
 [<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/supported_on_fabric_loader.png?raw=true" width="256" alt="ModFest 1.20">](https://fabricmc.net)
@@ -123,6 +125,10 @@ dependencies {
 
 You can now get your `EnvJson` object from a `Resource` object thanks to `ExtendedResource#of(Resource)#getEnvJson`
 or parse it with `EnvJson#parse(Path)` or `EnvJson#parse(InputStream)`.
+
+## Badge For Developers
+
+[<img src="https://github.com/FirstMegaGame4/env.json/tree/main/external/promo/badge.png" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
 
 ## Promotion
 
