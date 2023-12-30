@@ -8,10 +8,11 @@
 		"FirstMegaGame4"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/user/FirstMegaGame4/",
-		"sources": "https://github.com/FirstMegaGame4/env.json"
+		"homepage": "https://modrinth.com/mod/env.json",
+		"sources": "https://github.com/FirstMegaGame4/env.json",
+		"issues": "https://github.com/FirstMegaGame4/env.json/issues"
 	},
-	"license": "LGPL-3.0",
+	"license": "Code: LGPL-3.0\n Assets: All Rights Reserved",
 	"icon": "assets/env_json/icon.png",
 	"environment": "*",
 	"entrypoints": {
