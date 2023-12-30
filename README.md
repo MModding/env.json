@@ -130,6 +130,8 @@ or parse it with `EnvJson#parse(Path)` or `EnvJson#parse(InputStream)`.
 
 [<img src="https://github.com/FirstMegaGame4/env.json/tree/main/external/promo/badge.png" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
 
+`[<img src="https://github.com/FirstMegaGame4/env.json/tree/main/external/promo/badge.png" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)`
+
 ## Promotion
 
 [<img src="https://raw.githubusercontent.com/ModFest/art/3bf66556e674d670e30f647d6a48c4e1798c21d4/badge/128h/ModFest%201.20%20Badge%20Cozy.png" alt="ModFest 1.20">](https://modfest.net/1.20)
