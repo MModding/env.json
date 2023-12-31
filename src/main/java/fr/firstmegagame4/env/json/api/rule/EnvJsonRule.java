@@ -26,6 +26,11 @@ public interface EnvJsonRule {
 		ANY,
 
 		/**
+		 * Reverses the rule.
+		 */
+		NOT,
+
+		/**
 		 * Represents a dimension rule where the object should be.
 		 */
 		DIMENSION,

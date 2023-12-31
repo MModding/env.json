@@ -54,6 +54,13 @@ Applies env.json operations to Minecraft Vanilla data types.
         "rule": [] // the rules
       },
       {
+        "type": "not", // reverses the rule
+        "rule": { // the rule
+          "type": "...",
+          "rule": "..."
+        }
+      },
+      {
         "type": "dimension", // passes if the current dimension matches this one
         "rule": "minecraft:overworld" // the dimension, can also be a tag
       },
