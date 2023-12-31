@@ -25,7 +25,7 @@
 		"env_json.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.2",
+		"fabricloader": ">=0.15.1",
 		"minecraft": "~1.20.4",
 		"java": ">=17",
 		"fabric-api": "*"
