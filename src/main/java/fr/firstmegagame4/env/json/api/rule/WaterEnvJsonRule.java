@@ -6,6 +6,7 @@ public interface WaterEnvJsonRule extends EnvJsonRule {
 
 	enum Localization {
 		BELOW,
+		AT,
 		ABOVE
 	}
 }

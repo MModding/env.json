@@ -23,7 +23,7 @@ and their resource reload management.
 
 There is currently two official implementations of env.json:
 
-- Environment Driven Assets (EDA)
+- [Environment Driven Assets (EDA)](https://modrinth.com/mod/env-driven-assets)
 
 Mod Identifier: env-driven-assets.
 
@@ -31,7 +31,7 @@ Environments: Client
 
 Applies env.json operations to Minecraft Vanilla asset types.
 
-- Environment Driven Data (EDD)
+- [Environment Driven Data (EDD)](https://modrinth.com/mod/env-driven-data)
 
 Mod Identifier: env-driven-data.
 
@@ -94,16 +94,16 @@ Applies env.json operations to Minecraft Vanilla data types.
         "rule": true // true for "if it is submerged" and false for "if it is not submerged"
       },
       {
-        "type": "sky", // passes if the context is above the sky limit or below
-        "rule": "above" // must be "above" or "below"
+        "type": "sky", // passes if the context is above the sky limit, at or below
+        "rule": "at" // must be "above", "at" or "below"
       },
       {
-        "type": "water", // passes if the context is above the water level or below
-        "rule": "above" // must be "above" or "below"
+        "type": "water", // passes if the context is above the water level, at or below
+        "rule": "at" // must be "above", "at" or "below"
       },
       {
-        "type": "void", // passes if the context is above the void limit or below
-        "rule": "above" // must be "above" or "below"
+        "type": "void", // passes if the context is above the void limit, at or below
+        "rule": "at" // must be "above", "at" or "below"
       }
     ],
     "result": "minecraft:block/stone" // the redirected resource

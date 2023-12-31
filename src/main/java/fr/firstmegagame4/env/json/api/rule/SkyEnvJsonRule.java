@@ -6,6 +6,7 @@ public interface SkyEnvJsonRule extends EnvJsonRule {
 
 	enum Localization {
 		BELOW,
+		AT,
 		ABOVE
 	}
 }

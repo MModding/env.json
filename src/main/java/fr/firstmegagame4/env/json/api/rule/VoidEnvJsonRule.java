@@ -6,6 +6,7 @@ public interface VoidEnvJsonRule extends EnvJsonRule {
 
 	enum Localization {
 		BELOW,
+		AT,
 		ABOVE
 	}
 }
