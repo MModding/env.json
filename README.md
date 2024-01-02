@@ -4,12 +4,12 @@
 
 ## Supports
 
-[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/supported_on_fabric_loader.png?raw=true" width="256" alt="ModFest 1.20">](https://fabricmc.net)
-[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/supported_on_quilt_loader.png?raw=true" width="256" alt="ModFest 1.20">](https://quiltmc.org)
+[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/supported_on_fabric_loader.png?raw=true" width="256" alt="Supports Fabric Loader">](https://fabricmc.net)
+[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/supported_on_quilt_loader.png?raw=true" width="256" alt="Supports Quilt Loader">](https://quiltmc.org)
 
 ## Requirements
 
-[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/requires_fabric_api.png?raw=true" width="256" alt="ModFest 1.20">](https://modrinth.com/mod/fabric-api)
+[<img src="https://github.com/JR1811/Boatism/blob/5bdbea79b11428101353c4a67ccd4b3821200a76/extrernal/promo/badges/requires_fabric_api.png?raw=true" width="256" alt="Requires Fabric API">](https://modrinth.com/mod/fabric-api)
 
 ## Concept
 
