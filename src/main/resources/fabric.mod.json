@@ -5,6 +5,9 @@
 	"name": "env.json",
 	"description": "env.json is a Minecraft Library introducing a new sub json file extension format, with the goal of redirecting minecraft resources to other ones based on the environment context.",
 	"authors": [
+		"MModding Team"
+	],
+	"contributors": [
 		"FirstMegaGame4"
 	],
 	"contact": {
@@ -12,12 +15,12 @@
 		"sources": "https://github.com/FirstMegaGame4/env.json",
 		"issues": "https://github.com/FirstMegaGame4/env.json/issues"
 	},
-	"license": "Code: LGPL-3.0\\nAssets: All Rights Reserved",
+	"license": "Code: PolyForm-Shield-1.0.0\\nAssets: All Rights Reserved",
 	"icon": "assets/env_json/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"fr.firstmegagame4.env.json.impl.EnvJsonInitializer"
+          "com.mmodding.env.json.impl.EnvJsonInitializer"
 		]
 	},
 	"accessWidener": "env_json.accesswidener",
@@ -26,8 +29,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.1",
-		"minecraft": ">=1.20.1 <=1.20.4",
-		"java": ">=17",
+		"minecraft": ">=1.20.5",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {

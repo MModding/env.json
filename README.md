@@ -1,6 +1,8 @@
+[![MModding](https://raw.githubusercontent.com/MModding/mmodding.github.io/main/assets/mmodding_dark_banner.png)](https://discord.gg/2Sr83HJpD3)
+
 # env.json
 
-[<img src="https://github.com/FirstMegaGame4/env.json/blob/main/external/promo/logo.png?raw=true" width="256" alt="env.json logo">](https://modrinth.com/mod/env.json)
+[<img src="https://github.com/MModding/env.json/blob/main/external/promo/logo.png?raw=true" width="256" alt="env.json logo">](https://modrinth.com/mod/env.json)
 
 ## Supports
 
@@ -126,7 +128,7 @@ repositories {
 
 dependencies {
     // ...
-    modImplementation "com.github.FirstMegaGame4:env.json:${theMostBeautifulVersionYouCanFind}"
+    modImplementation "com.github.MModding:env.json:${theMostBeautifulVersionYouCanFind}"
 }
 ```
 
@@ -135,9 +137,9 @@ or parse it with `EnvJson#parse(Path)` or `EnvJson#parse(InputStream)`.
 
 ## Badge For Developers
 
-[<img src="https://github.com/FirstMegaGame4/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
+[<img src="https://github.com/MModding/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
 
-`[<img src="https://github.com/FirstMegaGame4/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)`
+`[<img src="https://github.com/MModding/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)`
 
 ## Promotion
 
