@@ -12,8 +12,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/env.json",
-		"sources": "https://github.com/FirstMegaGame4/env.json",
-		"issues": "https://github.com/FirstMegaGame4/env.json/issues"
+		"sources": "https://github.com/MModding/env.json",
+		"issues": "https://github.com/MModding/env.json/issues"
 	},
 	"license": "Code: PolyForm-Shield-1.0.0\\nAssets: All Rights Reserved",
 	"icon": "assets/env_json/icon.png",
