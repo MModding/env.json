@@ -128,7 +128,7 @@ repositories {
 
 dependencies {
     // ...
-    modImplementation "com.github.MModding:env.json:${theMostBeautifulVersionYouCanFind}"
+    modImplementation "com.mmodding:env.json:${theMostBeautifulVersionYouCanFind}"
 }
 ```
 
