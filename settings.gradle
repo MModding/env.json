@@ -1,5 +1,20 @@
 pluginManagement {
+	resolutionStrategy {
+		eachPlugin {
+			if (requested.id.toString() == "com.mmodding.gradle") {
+				useModule("com.mmodding:mmodding-gradle:${requested.version}")
+			}
+		}
+	}
 	repositories {
+		maven {
+			name "JitPack"
+			url "https://jitpack.io"
+		}
+		maven {
+			name "QuiltMC"
+			url "https://maven.quiltmc.org/repository/release"
+		}
 		maven {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'
