@@ -62,7 +62,7 @@ mmodding {
 		addMixin("env_json.mixins.json")
 		withDependencies {
 			it.fabricLoaderVersion = ">=" + project.loader_version
-			it.minecraftVersion = ">=1.20.5 <=" + project.minecraft_version
+			it.minecraftVersion = ">=" + project.minecraft_version
 			it.javaVersion = ">=" + 21
 			it.fabricApiVersion = "*"
 		}
