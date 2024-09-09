@@ -1,9 +1,15 @@
-package com.mmodding.env.json.api.rule;
+package com.mmodding.env.json.api.rule.builtin;
 
-import com.mmodding.env.json.impl.rule.CoordEnvJsonRuleImpl;
+import com.mmodding.env.json.api.rule.EnvJsonRule;
+import com.mmodding.env.json.impl.rule.builtin.CoordEnvJsonRuleImpl;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.function.BiFunction;
 
+/**
+ * Represents a coordinate comparator rule which is applied to the object.
+ */
+@ApiStatus.NonExtendable
 public interface CoordEnvJsonRule extends EnvJsonRule {
 
 	Coord coord();

@@ -7,9 +7,9 @@ import com.google.gson.JsonParser;
 import com.mmodding.env.json.api.EnvJson;
 import com.mmodding.env.json.api.EnvJsonMember;
 import com.mmodding.env.json.api.rule.*;
-import com.mmodding.env.json.impl.rule.*;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import com.mmodding.env.json.api.rule.parsing.EnvJsonRuleParser;
+import com.mmodding.env.json.impl.rule.EnvJsonRulesImpl;
+import com.mmodding.env.json.impl.rule.parsing.ParserCallbackImpl;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.crash.CrashReport;
@@ -20,7 +20,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 @ApiStatus.Internal
 public class EnvJsonParser {
@@ -43,80 +42,29 @@ public class EnvJsonParser {
 		this.content = JsonHelper.deserializeArray(new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8)));
 	}
 
-	private static SequenceEnvJsonRule parseSequenceRule(JsonArray list) {
-		return new SequenceEnvJsonRuleImpl(EnvJsonParser.parseRules(list));
+	public static EnvJsonRule parseRule(JsonObject json) {
+		String string = json.get("type").getAsString();
+		Identifier identifier = !string.contains(":") ? EnvJsonInitializer.createId(string) : Identifier.tryParse(string);
+		return EnvJsonParser.parseRuleContent(identifier, json.get("rule"));
 	}
 
-	private static AnyEnvJsonRule parseAnyRule(JsonArray list) {
-		return new AnyEnvJsonRuleImpl(EnvJsonParser.parseRules(list));
-	}
-
-	private static NotEnvJsonRule parseNotRule(JsonObject rule) {
-		return new NotEnvJsonRuleImpl(EnvJsonParser.parseRule(EnvJsonRule.Type.valueOf(rule.get("type").getAsString().toUpperCase()), () -> rule.get("rule")));
-	}
-
-	private static DimensionEnvJsonRule parseDimensionRule(String string) {
-		if (string.startsWith("#")) {
-			return new DimensionEnvJsonRuleImpl(EnvJsonUtils.tryParse(RegistryKeys.WORLD, string));
+	@SuppressWarnings("unchecked")
+	private static <E extends JsonElement, R extends EnvJsonRule> R parseRuleContent(Identifier identifier, JsonElement element) {
+		if (EnvJsonRulesImpl.REGISTRY.containsKey(identifier)) {
+			EnvJsonRuleParser<E, R> parser = (EnvJsonRuleParser<E, R>) EnvJsonRulesImpl.REGISTRY.get(identifier);
+			R rule = parser.parse((E) element, new ParserCallbackImpl());
+			EnvJsonRulesImpl.LOADED_RULES.add(rule.getClass());
+			return rule;
 		}
 		else {
-			return new DimensionEnvJsonRuleImpl(RegistryKey.of(RegistryKeys.WORLD, Identifier.tryParse(string)));
+			throw new RuntimeException("Could not find " + identifier + " env.json rule!");
 		}
-	}
-
-	private static BiomeEnvJsonRule parseBiomeRule(String string) {
-		if (string.startsWith("#")) {
-			return new BiomeEnvJsonRuleImpl(EnvJsonUtils.tryParse(RegistryKeys.BIOME, string));
-		}
-		else {
-			return new BiomeEnvJsonRuleImpl(RegistryKey.of(RegistryKeys.BIOME, Identifier.tryParse(string)));
-		}
-	}
-
-	private static CoordEnvJsonRule parseCoordRule(CoordEnvJsonRule.Coord coord, JsonObject json) {
-		CoordEnvJsonRule.Comparator comparator = CoordEnvJsonRule.Comparator.fromString(json.get("comparator").getAsString());
-		int value = json.get("value").getAsInt();
-		return new CoordEnvJsonRuleImpl(coord, comparator, value);
-	}
-
-	private static SubmergedEnvJsonRule parseSubmergedRule(boolean bool) {
-		return new SubmergedEnvJsonRuleImpl(bool);
-	}
-
-	private static SkyEnvJsonRule parseSkyRule(String string) {
-		return new SkyEnvJsonRuleImpl(SkyEnvJsonRule.Localization.valueOf(string.toUpperCase()));
-	}
-
-	private static WaterEnvJsonRule parseWaterRule(String string) {
-		return new WaterEnvJsonRuleImpl(WaterEnvJsonRule.Localization.valueOf(string.toUpperCase()));
-	}
-
-	private static VoidEnvJsonRule parseVoidRule(String string) {
-		return new VoidEnvJsonRuleImpl(VoidEnvJsonRule.Localization.valueOf(string.toUpperCase()));
-	}
-
-	private static EnvJsonRule parseRule(EnvJsonRule.Type type, Supplier<JsonElement> supplier) {
-		return switch (type) {
-			case SEQUENCE -> EnvJsonParser.parseSequenceRule(supplier.get().getAsJsonArray());
-			case ANY -> EnvJsonParser.parseAnyRule(supplier.get().getAsJsonArray());
-			case NOT -> EnvJsonParser.parseNotRule(supplier.get().getAsJsonObject());
-			case DIMENSION -> EnvJsonParser.parseDimensionRule(supplier.get().getAsString());
-			case BIOME -> EnvJsonParser.parseBiomeRule(supplier.get().getAsString());
-			case X_COORD -> EnvJsonParser.parseCoordRule(CoordEnvJsonRule.Coord.X, supplier.get().getAsJsonObject());
-			case Y_COORD -> EnvJsonParser.parseCoordRule(CoordEnvJsonRule.Coord.Y, supplier.get().getAsJsonObject());
-			case Z_COORD -> EnvJsonParser.parseCoordRule(CoordEnvJsonRule.Coord.Z, supplier.get().getAsJsonObject());
-			case SUBMERGED -> EnvJsonParser.parseSubmergedRule(supplier.get().getAsBoolean());
-			case SKY -> EnvJsonParser.parseSkyRule(supplier.get().getAsString());
-			case WATER -> EnvJsonParser.parseWaterRule(supplier.get().getAsString());
-			case VOID -> EnvJsonParser.parseVoidRule(supplier.get().getAsString());
-		};
 	}
 
 	private static List<EnvJsonRule> parseRules(JsonArray array) {
 		List<EnvJsonRule> rules = new ArrayList<>();
 		for (JsonElement element : array) {
-			JsonObject rule = element.getAsJsonObject();
-			rules.add(EnvJsonParser.parseRule(EnvJsonRule.Type.valueOf(rule.get("type").getAsString().toUpperCase()), () -> rule.get("rule")));
+			rules.add(EnvJsonParser.parseRule(element.getAsJsonObject()));
 		}
 		return rules;
 	}

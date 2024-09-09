@@ -1,8 +1,5 @@
 package com.mmodding.env.json.api;
 
-import com.mmodding.env.json.api.rule.SkyEnvJsonRule;
-import com.mmodding.env.json.api.rule.VoidEnvJsonRule;
-import com.mmodding.env.json.api.rule.WaterEnvJsonRule;
 import it.unimi.dsi.fastutil.ints.Int2BooleanFunction;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.TagKey;
@@ -27,9 +24,9 @@ public interface EnvJsonVisitor {
 
 	boolean applySubmerged(boolean submerged);
 
-	boolean applySky(SkyEnvJsonRule.Localization localization);
+	boolean applySky(RelativeLocation localization);
 
-	boolean applyWater(WaterEnvJsonRule.Localization localization);
+	boolean applyWater(RelativeLocation localization);
 
-	boolean applyVoid(VoidEnvJsonRule.Localization localization);
+	boolean applyVoid(RelativeLocation localization);
 }
