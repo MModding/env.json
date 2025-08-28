@@ -2,7 +2,7 @@
 
 # env.json
 
-[<img src="https://github.com/MModding/env.json/blob/main/external/promo/logo.png?raw=true" width="256" alt="env.json logo">](https://modrinth.com/mod/env.json)
+[<img src="https://github.com/MModding/art/blob/main/mods/env_json/logo_named.png?raw=true" width="256" alt="env.json logo">](https://modrinth.com/mod/env.json)
 
 ## Supports
 
@@ -137,9 +137,9 @@ or parse it with `EnvJson#parse(Path)` or `EnvJson#parse(InputStream)`.
 
 ## Badge For Developers
 
-[<img src="https://github.com/MModding/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
+[<img src="https://github.com/MModding/art/blob/main/mods/env_json/requires_env_json.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)
 
-`[<img src="https://github.com/MModding/env.json/blob/main/external/promo/badge.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)`
+`[<img src="https://github.com/MModding/art/blob/main/mods/env_json/requires_env_json.png?raw=true" width="256" alt="Requires env.json">](https://modrinth.com/mod/env.json)`
 
 ## Promotion
 
